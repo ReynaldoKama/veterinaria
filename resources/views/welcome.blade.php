@@ -32,7 +32,7 @@
             </header>
             <div class="contenedor">
                 <div class="contenido-text">
-                    <h1>Venta de medicamentos, consultas y reserva de citas</h1>
+                    <h1>Venta de medicamentos, consultas y reserva de citas médicas</h1>
                 </div>
             </div>
         </div>
