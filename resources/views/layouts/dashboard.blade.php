@@ -14,7 +14,7 @@
 <body>
     <header class="header">
         <div class="header-content">
-            <img src="{{asset('images/logo.png')}}" alt="logo bienestar animal">
+            <a href="{{ route('home') }}"><img src="{{asset('images/logo.png')}}" alt="logo bienestar animal"></a>
             <div class="content-left">
                 <nav class="navegacion">
                     <a href="{{ route('productos') }}"><p>Productos</p></a>

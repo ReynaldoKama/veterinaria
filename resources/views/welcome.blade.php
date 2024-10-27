@@ -14,10 +14,10 @@
 </head>
 <body>
     <div class="contenido-principal">
-        <div class="contenido-hero">
+        <div class="capa-inicial">
             <header class="header">
                 <div class="header-content">
-                    <img src="{{asset('images/logo.png')}}" alt="logo bienestar animal">
+                    <a href="{{ route('home') }}"><img src="{{asset('images/logo.png')}}" alt="logo bienestar animal"></a>
                     <div class="content-left">
                         <nav class="navegacion">
                             <a href="{{ route('productos') }}"><p>Productos</p></a>
@@ -26,7 +26,7 @@
                             <a href="#"><p>Animales</p></a>
                             {{-- <li><a href="{{ route('#') }}">Nuevo animal</a></li> --}}
                         </nav>
-                        <a class="btn-si" href="#"><p>Inicia sesión</p> <img src="{{asset('images/sign in.png')}}" alt=""></a>
+                        <a class="btn-si" href="#"><p>Inicia sesión</p> <img src="{{asset('images/sign in.png')}}" alt="img"></a>
                     </div>
                 </div>
             </header>
@@ -36,6 +36,46 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> {{--  contenido-principal --}}
+    <main class="main-principal">
+        <h2 class="section-titulos">Tratamientos y Consejos</h2>
+        <section class="section">
+            <div class="section-content">
+                <div class="section-text">
+                    <h2>Moquillo en gatos - Tratamiento</h2>
+                    <p>Nullam ac sem sit amet nisl tincidunt efficitur. Etiam in erat dictum, accumsan urna quis, porttitor quam. Nunc quam ex, aliquet bibendum mattis at, pellentesque vitae mauris.</p>
+                    <a class="btn-si btn-leer" href="#"><img src="{{asset('images/sign in.png')}}" alt="img"><p>Leer más</p></a>
+                </div>
+                <div class="section-img">
+                    <img src="{{asset('images/gato.jpg')}}" alt="gato">
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="section-content">
+                <div class="section-img">
+                    <img src="{{asset('images/section-depresion.jpg')}}" alt="gato">
+                </div>
+                <div class="section-text">
+                    <h2>Depresión en perros</h2>
+                    <p>Praesent eros neque, finibus sit amet justo et, blandit vehicula velit. Nam imperdiet ex quis mi cursus volutpat. Phasellus neque nibh, finibus vitae sollicitudin vel, volutpat ac nibh. </p>
+                    <a class="btn-si btn-leer" href="#"><img src="{{asset('images/sign in.png')}}" alt="img"><p>Leer más</p></a>
+                </div>
+                
+            </div>
+        </section>
+        <section class="section">
+            <div class="section-content">
+                <div class="section-text">
+                    <h2>Eliminar pulgas en casa</h2>
+                    <p>Aliquam dolor sapien, tristique ut placerat id, placerat nec lorem. Donec quis vestibulum orci, ac finibus mauris. Sed egestas tristique feugiat. Donec auctor, nibh vitae facilisis interdum, libero lectus volutpat ex, vel finibus nunc eros vitae velit. Nulla facilisi..</p>
+                    <a class="btn-si btn-leer" href="#"><img src="{{asset('images/sign in.png')}}" alt="img"><p>Leer más</p></a>
+                </div>
+                <div class="section-img">
+                    <img src="{{asset('images/section-perros-1.jpg')}}" alt="gato">
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
