@@ -1,86 +1,170 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <h1 class="text-center">Tienda de Productos</h1>
-    <link rel="stylesheet" href="{{ asset('css/productos.css') }}">
-
-    <!-- Contenedor principal -->
-    <div class="container mt-4">
-        <div class="row">
-            <!-- Categorías -->
-            <div class="col-md-3">
-                <div class="categorias mb-4">
-                    <h5 class="categorias-title">Categorías</h5>
-                    <ul class="list-group">
-                        <li class="list-group-item"><a href="#">Anabólicos</a></li>
-                        <li class="list-group-item"><a href="#">Antibióticos</a></li>
-                        <li class="list-group-item"><a href="#">Antiinflamatorios</a></li>
-                        <li class="list-group-item"><a href="#">Antiparasitarios</a></li>
-                        <li class="list-group-item"><a href="#">Hormonales</a></li>
-                        <li class="list-group-item"><a href="#">Vitaminas y minerales</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Listado de productos y buscador -->
-            <div class="col-md-9">
-                <div class="d-flex justify-content-between mb-3">
-                    <!-- Buscador -->
-                    <div class="input-group search-bar">
-                        <input type="text" class="form-control" placeholder="Buscar...">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button">
-                                <i class="fa fa-search"></i>
-                            </button>
+    <div class="contenido-productos">
+        <div class="productos-izquierda">
+            <div class="cotizador-productos">
+                <h3 class="titulos-izquierda">Cotizador de productos</h3>
+                <div class="datos-izquierda">
+                    <div class="contenido-cotizador">
+                        <img src="images/productos/carrito.png" alt="carrito">
+                        <p>Productos agregados</p>
+                        <div class="cantidad-productos">
+                            <p>10</p>
                         </div>
                     </div>
-                    
-                    <!-- Filtro de orden -->
-                    <div class="filter">
-                        <select class="form-control">
-                            <option>Ordenar</option>
-                            <option>Precio</option>
-                            <option>Nombre</option>
-                        </select>
+                </div>
+            </div>{{-- cotizador productos --}}
+            <div class="categoria-productos">
+                <h3 class="titulos-izquierda">Categorias</h3>
+                <div class="datos-izquierda">
+                    <nav class="navegacion-categorias">
+                        <ul>
+                            <li><a href="#"><p>Anabólicos</p></a></li>
+                            <li><a href="#"><p>Antibióticos</p></a></li>
+                            <li><a href="#"><p>Antiinflamatorios</p></a></li>
+                            <li><a href="#"><p>Antiparasitarios</p></a></li>
+                            <li><a href="#"><p>Hormonales</p></a></li>
+                            <li><a href="#"><p>Vitaminas y minerales</p></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>{{-- cotizador productos --}}
+        </div>{{-- productos izquierda --}}
+        <div class="productos-derecha">
+            <h2 class="titulo-productos">Todos los Productos</h2>
+            <div class="productos-busqueda">
+                <div class="buscador-text">
+                    <input type="text" placeholder="Buscar productos">
+                    <button type="submit"><img src="images/productos/search.png" alt="buscar"></button>
+                </div>
+                <select class="select-productos" name="" id="">
+                    <option value="">Ordenar por</option>
+                    <option value="">Nombre</option>
+                    <option value="">Precio</option>
+                    <option value="">Categoria</option>
+                </select>
+            </div> {{-- productos busqueda --}}
+            <section class="section-productos">
+                <div class="producto">
+                    <div class="imagen-producto">
+                        <img src="images/productos/REVALOR 200.png" alt="producto">
+                    </div>
+                    <div class="datos-producto">
+                        <h3>REVALOR 200</h3>
+                        <div class="info-precio">
+                            <p>Caja de 10 cartuchos x 10 dosis</p>
+                            <p class="precio">20.00 bs</p>
+                        </div>
+                        <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
                     </div>
                 </div>
-
-                <!-- Listado de productos -->
-                <div class="row">
-                    <!-- Producto 1 -->
-                    <div class="col-md-4 mb-4">
-                        <div class="card product-card shadow-sm">
-                            <img src="{{ asset('images/Productos/REVALOR-200.jpg') }}" alt="Revalor 200" class="card-img-top product-image">
-                            <div class="card-body">
-                                <h5 class="card-title">REVALOR 200</h5>
-                                <p class="card-text">Caja de 10 cartuchos x 10 dosis.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span>20 bs</span>
-                                    <a href="#" class="btn btn-primary">Ver producto</a>
-                                </div>
-                                <button class="btn btn-success btn-block mt-2">Añadir al carrito</button>
-                            </div>
-                        </div>
+                <div class="producto">
+                    <div class="imagen-producto">
+                        <img src="images/productos/REVALOR 200.png" alt="producto">
                     </div>
-
-                    <!-- Producto 2 -->
-                    <div class="col-md-4 mb-4">
-                        <div class="card product-card shadow-sm">
-                            <img src="{{ asset('images/Productos/mastijetForte.jpeg') }}" alt="Mastijet Forte" class="card-img-top product-image">
-                            <div class="card-body">
-                                <h5 class="card-title">MASTIJET FORTE</h5>
-                                <p class="card-text">Caja con 20 jeringas.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span>20 bs</span>
-                                    <a href="#" class="btn btn-primary">Ver producto</a>
-                                </div>
-                                <button class="btn btn-success btn-block mt-2">Añadir al carrito</button>
-                            </div>
+                    <div class="datos-producto">
+                        <h3>REVALOR 200</h3>
+                        <div class="info-precio">
+                            <p>Caja de 10 cartuchos x 10 dosis</p>
+                            <p class="precio">20.00 bs</p>
                         </div>
+                        <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
                     </div>
-
                 </div>
-            </div>
-        </div>
-    </div>
+                <div class="producto">
+                    <div class="imagen-producto">
+                        <img src="images/productos/REVALOR 200.png" alt="producto">
+                    </div>
+                    <div class="datos-producto">
+                        <h3>REVALOR 200</h3>
+                        <div class="info-precio">
+                            <p>Caja de 10 cartuchos x 10 dosis</p>
+                            <p class="precio">20.00 bs</p>
+                        </div>
+                        <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
+                    </div>
+                </div>
+                <div class="producto">
+                    <div class="imagen-producto">
+                        <img src="images/productos/REVALOR 200.png" alt="producto">
+                    </div>
+                    <div class="datos-producto">
+                        <h3>REVALOR 200</h3>
+                        <div class="info-precio">
+                            <p>Caja de 10 cartuchos x 10 dosis</p>
+                            <p class="precio">20.00 bs</p>
+                        </div>
+                        <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
+                    </div>
+                </div>
+                <div class="producto">
+                    <div class="imagen-producto">
+                        <img src="images/productos/REVALOR 200.png" alt="producto">
+                    </div>
+                    <div class="datos-producto">
+                        <h3>REVALOR 200</h3>
+                        <div class="info-precio">
+                            <p>Caja de 10 cartuchos x 10 dosis</p>
+                            <p class="precio">20.00 bs</p>
+                        </div>
+                        <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
+                    </div>
+                </div>
+                <div class="producto">
+                    <div class="imagen-producto">
+                        <img src="images/productos/REVALOR 200.png" alt="producto">
+                    </div>
+                    <div class="datos-producto">
+                        <h3>REVALOR 200</h3>
+                        <div class="info-precio">
+                            <p>Caja de 10 cartuchos x 10 dosis</p>
+                            <p class="precio">20.00 bs</p>
+                        </div>
+                        <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
+                    </div>
+                </div>
+                <div class="producto">
+                    <div class="imagen-producto">
+                        <img src="images/productos/REVALOR 200.png" alt="producto">
+                    </div>
+                    <div class="datos-producto">
+                        <h3>REVALOR 200</h3>
+                        <div class="info-precio">
+                            <p>Caja de 10 cartuchos x 10 dosis</p>
+                            <p class="precio">20.00 bs</p>
+                        </div>
+                        <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
+                    </div>
+                </div>
+                <div class="producto">
+                    <div class="imagen-producto">
+                        <img src="images/productos/REVALOR 200.png" alt="producto">
+                    </div>
+                    <div class="datos-producto">
+                        <h3>REVALOR 200</h3>
+                        <div class="info-precio">
+                            <p>Caja de 10 cartuchos x 10 dosis</p>
+                            <p class="precio">20.00 bs</p>
+                        </div>
+                        <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
+                    </div>
+                </div>
+                <div class="producto">
+                    <div class="imagen-producto">
+                        <img src="images/productos/REVALOR 200.png" alt="producto">
+                    </div>
+                    <div class="datos-producto">
+                        <h3>REVALOR 200</h3>
+                        <div class="info-precio">
+                            <p>Caja de 10 cartuchos x 10 dosis</p>
+                            <p class="precio">20.00 bs</p>
+                        </div>
+                        <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
+                    </div>
+                </div>
+            </section>
+        </div>{{-- productos derecha --}}
+    </div>{{-- contenido productos --}}
+    
 @endsection

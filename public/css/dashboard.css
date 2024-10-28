@@ -4,6 +4,8 @@
     --color-hover: #00A680;
     --color-fondo: #DCE5F4;
     --color-blanco-transparente: rgba(245, 255, 255, 0.24);
+    --color-blanco: #FFFFFF;
+    --color-precio: #F4B909;
 }
 html{
     font-size: 62.5%; /* (1) */
@@ -22,7 +24,11 @@ h1{
     margin: 0;
 }
 h2{
-    font-size: 2.4rem;
+    font-size: 2.8rem;
+    margin: 0;
+}
+h3{
+    font-size: 2rem;
     margin: 0;
 }
 p{
