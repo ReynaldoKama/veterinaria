@@ -72,7 +72,7 @@
                     <a class="btn-si btn-leer" href="#"><img src="{{asset('images/sign in.png')}}" alt="img"><p>Leer más</p></a>
                 </div>
                 <div class="section-img">
-                    <img src="{{asset('images/section-perros-1.jpg')}}" alt="gato">
+                    <img src="{{asset('images/section-pulgas.jpg')}}" alt="gato">
                 </div>
             </div>
         </section>
