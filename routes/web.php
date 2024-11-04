@@ -9,4 +9,6 @@ Route::get('/', function () {
 Route::get('/productos', function () {
     return view('products/index');
 })->name('productos');
-
+Route::get('/login', function () {
+    return view('login/index');
+})->name('login');

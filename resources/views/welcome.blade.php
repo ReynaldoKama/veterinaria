@@ -26,7 +26,7 @@
                             <a href="#"><p>Animales</p></a>
                             {{-- <li><a href="{{ route('#') }}">Nuevo animal</a></li> --}}
                         </nav>
-                        <a class="btn-si" href="#"><p>Inicia sesión</p> <img src="{{asset('images/sign in.png')}}" alt="img"></a>
+                        <a class="btn-si" href="{{route('login')}}"><p>Inicia sesión</p> <img src="{{asset('images/sign in.png')}}" alt="img"></a>
                     </div>
                 </div>
             </header>
