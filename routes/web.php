@@ -15,3 +15,4 @@ Route::get('/productos/create', [ProductsController::class, 'create'])->name('pr
 Route::get('/login', function () {
     return view('login/index');
 })->name('login');
+Route::post('/add-to-cart/{id}', [ProductsController::class, 'addToCart'])->name('add.to.cart');
