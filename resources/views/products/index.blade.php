@@ -10,7 +10,7 @@
                         <img src="images/productos/carrito.png" alt="carrito">
                         <p>Productos agregados</p>
                         <div class="cantidad-productos">
-                            <p>10</p>
+                            <p>0</p>
                         </div>
                     </div>
                 </div>
@@ -46,123 +46,22 @@
                 </select>
             </div> {{-- productos busqueda --}}
             <section class="section-productos">
-                <div class="producto">
-                    <div class="imagen-producto">
-                        <img src="images/productos/REVALOR 200.png" alt="producto">
-                    </div>
-                    <div class="datos-producto">
-                        <h3>REVALOR 200</h3>
-                        <div class="info-precio">
-                            <p>Caja de 10 cartuchos x 10 dosis</p>
-                            <p class="precio">20.00 bs</p>
+                @foreach ($productos as $id => $producto)
+                    <div class="producto">
+                    
+                        <div class="imagen-producto">
+                            <img src="{{ $producto['imagen_url'] }}" alt="producto">
                         </div>
-                        <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <div class="imagen-producto">
-                        <img src="images/productos/REVALOR 200.png" alt="producto">
-                    </div>
-                    <div class="datos-producto">
-                        <h3>REVALOR 200</h3>
-                        <div class="info-precio">
-                            <p>Caja de 10 cartuchos x 10 dosis</p>
-                            <p class="precio">20.00 bs</p>
+                        <div class="datos-producto">
+                            <h3>{{ $producto['nombre'] }}</h3>
+                            <div class="info-precio">
+                                <p>{{ $producto['descripcion'] }}</p>
+                                <p class="precio">{{ $producto['precio'] }}</p>
+                            </div>
+                            <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
                         </div>
-                        <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
                     </div>
-                </div>
-                <div class="producto">
-                    <div class="imagen-producto">
-                        <img src="images/productos/REVALOR 200.png" alt="producto">
-                    </div>
-                    <div class="datos-producto">
-                        <h3>REVALOR 200</h3>
-                        <div class="info-precio">
-                            <p>Caja de 10 cartuchos x 10 dosis</p>
-                            <p class="precio">20.00 bs</p>
-                        </div>
-                        <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <div class="imagen-producto">
-                        <img src="images/productos/REVALOR 200.png" alt="producto">
-                    </div>
-                    <div class="datos-producto">
-                        <h3>REVALOR 200</h3>
-                        <div class="info-precio">
-                            <p>Caja de 10 cartuchos x 10 dosis</p>
-                            <p class="precio">20.00 bs</p>
-                        </div>
-                        <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <div class="imagen-producto">
-                        <img src="images/productos/REVALOR 200.png" alt="producto">
-                    </div>
-                    <div class="datos-producto">
-                        <h3>REVALOR 200</h3>
-                        <div class="info-precio">
-                            <p>Caja de 10 cartuchos x 10 dosis</p>
-                            <p class="precio">20.00 bs</p>
-                        </div>
-                        <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <div class="imagen-producto">
-                        <img src="images/productos/REVALOR 200.png" alt="producto">
-                    </div>
-                    <div class="datos-producto">
-                        <h3>REVALOR 200</h3>
-                        <div class="info-precio">
-                            <p>Caja de 10 cartuchos x 10 dosis</p>
-                            <p class="precio">20.00 bs</p>
-                        </div>
-                        <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <div class="imagen-producto">
-                        <img src="images/productos/REVALOR 200.png" alt="producto">
-                    </div>
-                    <div class="datos-producto">
-                        <h3>REVALOR 200</h3>
-                        <div class="info-precio">
-                            <p>Caja de 10 cartuchos x 10 dosis</p>
-                            <p class="precio">20.00 bs</p>
-                        </div>
-                        <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <div class="imagen-producto">
-                        <img src="images/productos/REVALOR 200.png" alt="producto">
-                    </div>
-                    <div class="datos-producto">
-                        <h3>REVALOR 200</h3>
-                        <div class="info-precio">
-                            <p>Caja de 10 cartuchos x 10 dosis</p>
-                            <p class="precio">20.00 bs</p>
-                        </div>
-                        <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <div class="imagen-producto">
-                        <img src="images/productos/REVALOR 200.png" alt="producto">
-                    </div>
-                    <div class="datos-producto">
-                        <h3>REVALOR 200</h3>
-                        <div class="info-precio">
-                            <p>Caja de 10 cartuchos x 10 dosis</p>
-                            <p class="precio">20.00 bs</p>
-                        </div>
-                        <button class="btn-si btn-ver-producto"><p>Ver producto</p></button>
-                    </div>
-                </div>
+                @endforeach
             </section>
         </div>{{-- productos derecha --}}
     </div>{{-- contenido productos --}}

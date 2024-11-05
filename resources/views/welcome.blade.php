@@ -20,13 +20,13 @@
                     <a href="{{ route('home') }}"><img src="{{asset('images/logo.png')}}" alt="logo bienestar animal"></a>
                     <div class="content-left">
                         <nav class="navegacion">
-                            <a href="{{ route('productos') }}"><p>Productos</p></a>
+                            <a href="{{ route('product.index') }}"><p>Productos</p></a>
                             <a href="#"><p>citas</p></a>
                             <a href="#"><p>Nosotros</p></a>
                             <a href="#"><p>Animales</p></a>
                             {{-- <li><a href="{{ route('#') }}">Nuevo animal</a></li> --}}
                         </nav>
-                        <a class="btn-si" href="{{route('login')}}"><p>Inicia sesión</p> <img src="{{asset('images/sign in.png')}}" alt="img"></a>
+                        <a class="btn-si" href="{{route('login')}}"><p>Iniciar sesión</p> <img src="{{asset('images/sign in.png')}}" alt="img"></a>
                     </div>
                 </div>
             </header>

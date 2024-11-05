@@ -16,6 +16,11 @@ html{
 *, *:before, *:after{
     box-sizing: inherit;
 }
+body{
+    margin: 0;
+    background-color: var(--color-fondo);
+    font-family: "Krub", sans-serif;
+}
 .header{
     background-color: transparent;
 }
