@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Kreait\Firebase\Factory;
+use Illuminate\Support\Facades\Session;
 
 class ProductsController extends Controller
 {
@@ -85,5 +86,39 @@ class ProductsController extends Controller
     {
         $this->database->getReference('productos/'.$id)->remove();
         return redirect()->back()->with('success', 'Producto eliminado eliminado');
+    }
+
+    public function addToCart(Request $request, $id)
+    {
+        // Obtener el producto de Firebase usando el ID
+        $producto = $this->database->getReference('productos/'.$id)->getValue();
+
+        // Obtener la cantidad del producto del request (valor predeterminado: 1)
+        $cantidad = $request->input('cantidad', 1);
+
+        // Añadir el producto al carrito en la sesión
+        $carrito = Session::get('carrito', []);
+        if (isset($carrito[$id])) {
+            $carrito[$id]['cantidad'] += $cantidad;
+        } else {
+            $carrito[$id] = [
+                'nombre' => $producto['nombre'],
+                'precio' => $producto['precio'],
+                'cantidad' => $cantidad,
+            ];
+        }
+
+        Session::put('carrito', $carrito);
+
+        // Calcular el total de productos y precio total
+        $totalProductos = array_sum(array_column($carrito, 'cantidad'));
+        $totalPrecio = array_sum(array_map(function($item) {
+            return $item['precio'] * $item['cantidad'];
+        }, $carrito));
+
+        return response()->json([
+            'totalProductos' => $totalProductos,
+            'totalPrecio' => $totalPrecio,
+        ]);
     }
 }
