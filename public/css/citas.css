@@ -79,7 +79,12 @@ label {
 
 /* Estilos para el calendario */
 .calendario {
+    display: block;
     text-align: center;
+    background-color: #e9eff7;
+    width: 500px;
+    padding: 20px;
+    border-radius: 8px;
 }
 
 .calendario-header {
@@ -87,6 +92,8 @@ label {
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
     margin-bottom: 10px;
+    padding-inline-start: 10px;
+    display: block;
 }
 
 .calendario-grid {

@@ -21,7 +21,7 @@
                     <div class="content-left">
                         <nav class="navegacion">
                             <a href="{{ route('product.index') }}"><p>Productos</p></a>
-                            <a href="#"><p>citas</p></a>
+                            <a href="{{ route('citas.index')}}"><p>citas</p></a>
                             <a href="#"><p>Nosotros</p></a>
                             <a href="#"><p>Animales</p></a>
                             {{-- <li><a href="{{ route('#') }}">Nuevo animal</a></li> --}}
