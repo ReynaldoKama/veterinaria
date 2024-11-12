@@ -4,6 +4,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CitasController;
 
 Route::get('/', function () {
     return view('/welcome');
@@ -25,3 +26,7 @@ Route::get('/productos', [ProductsController::class, 'index'])->name('product.in
 Route::get('/productos/create', [ProductsController::class, 'create'])->middleware(['auth','can:admin.product.create'])->name('product.create');
 
 Route::post('/add-to-cart/{id}', [ProductsController::class, 'addToCart'])->name('add.to.cart');
+
+
+Route::get('/citas', [CitasController::class, 'index'])->name('citas.index');
+Route::post('/citas/agendar', [CitasController::class, 'store'])->name('citas.store');
