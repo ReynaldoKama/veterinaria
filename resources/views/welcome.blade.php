@@ -26,7 +26,12 @@
                             <a href="#"><p>Animales</p></a>
                             {{-- <li><a href="{{ route('#') }}">Nuevo animal</a></li> --}}
                         </nav>
-                        <a class="btn-si" href="{{route('login')}}"><p>Iniciar sesión</p> <img src="{{asset('images/sign in.png')}}" alt="img"></a>
+                        @auth
+                            <a class="btn-si" href="{{route('logout')}}"><p>cerrar sesión</p> <img src="{{asset('images/sign in.png')}}" alt="img"></a>
+                        @else
+                            <a class="btn-si" href="{{route('login')}}"><p>Iniciar sesión</p> <img src="{{asset('images/sign in.png')}}" alt="img"></a>
+                        @endauth
+                        
                     </div>
                 </div>
             </header>

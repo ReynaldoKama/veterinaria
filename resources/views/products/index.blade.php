@@ -9,7 +9,9 @@
                     <div class="contenido-cotizador">
                         <img src="images/productos/carrito.png" alt="carrito">
                         <p>Productos agregados</p>
-                        <p id="total-productos">0 productos</p>   
+                        <div class="cantidad-productos">
+                            <p id="total-productos">10</p>
+                        </div>   
                     </div>
                     <div id="carrito-contenido">
                     </div>
@@ -37,7 +39,13 @@
             </div>{{-- cotizador productos --}}
         </div>{{-- productos izquierda --}}
         <div class="productos-derecha">
-            <h2 class="titulo-productos">Todos los Productos</h2>
+            <div class="productos-agregar">
+                <h2 class="titulo-productos">Todos los Productos</h2>
+                @can('admin.products.create')
+                    <a href="{{route('product.create')}}" class="btn-add-producto"><p>Agregar productos</p></a>
+                @endcan
+                
+            </div>
             <div class="productos-busqueda">
                 <div class="buscador-text">
                     <input type="text" placeholder="Buscar productos">
@@ -85,7 +93,7 @@
                     <input type="number" id="cantidadProducto" value="1" min="1">
                 </div>
             </div>
-            <button class="btn-si btn-ver-producto" onclick="agregarAlCarrito()">Añadir al carrito</button>
+            <button class="btn-anadir btn-ver-producto" onclick="agregarAlCarrito()"><img src="images/productos/carrito.png" alt="carrito"><p>Añadir al carrito</p></button>
         </div>
     </div>
 </div>
@@ -211,6 +219,18 @@
     .cotizador-producto-item p {
         margin: 5px 0;
         font-size: 14px;
+    }
+    .btn-anadir{
+        margin: 1rem 0 0 0;
+        border: none;
+        height: 3.5rem;
+        width: 100%;
+    }
+    .btn-anadir{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem
     }
 </style>
 @endsection

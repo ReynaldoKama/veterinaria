@@ -7,7 +7,12 @@
     margin-top: 2rem;
     gap: 5rem;
 }
-
+.productos-agregar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
 .titulo-productos{
     text-transform: uppercase;
 }
@@ -79,6 +84,18 @@
 }
 
 /* Contenido derecha */
+
+.btn-add-producto{
+    background-color: var(--color-primary);
+    color: var(--color-blanco);
+    padding: .8rem 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+.btn-add-producto p{
+    margin: 0;
+    font-size: 1.5rem;
+}
 .productos-busqueda{
     display: flex;
     justify-content: space-between;
