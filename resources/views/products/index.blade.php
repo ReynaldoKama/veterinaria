@@ -62,15 +62,15 @@
                 @foreach ($productos as $id => $producto)
                     <div class="producto">
                         <div class="imagen-producto">
-                            <img src="{{ $producto['imagen_url'] }}" alt="producto">
+                            <img src="{{ $producto->imagen_url }}" alt="{{$producto->name}}" width="100">
                         </div>
                         <div class="datos-producto">
-                            <h3>{{ $producto['nombre'] }}</h3>
+                            <h3>{{ $producto->name }}</h3>
                             <div class="info-precio">
-                                <p>{{ $producto['descripcion'] }}</p>
-                                <p class="precio">{{ $producto['precio'] }}</p>
+                                <p>{{ $producto->presentation }}</p>
+                                <p class="precio">{{ $producto->price }}</p>
                             </div>
-                            <button class="btn-si btn-ver-producto" onclick="mostrarModal('{{ $id }}', '{{ $producto['nombre'] }}', '{{ $producto['precio'] }}', '{{ $producto['descripcion'] }}', '{{ $producto['imagen_url'] }}')">Ver producto</button>
+                            <button class="btn-si btn-ver-producto" onclick="mostrarModal('{{ $id }}', '{{ $producto->name }}', '{{ $producto->price }}', '{{ $producto->presentation}}', '{{ $producto->imagen_url }}')">Ver producto</button>
                         </div>
                     </div>
                 @endforeach

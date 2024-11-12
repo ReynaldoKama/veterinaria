@@ -19,7 +19,7 @@
     </div>
     
     <!-- Sección para agendar citas y calendario en la misma línea -->
-    <div class="agenda-citas-calendario">
+    <div class="agenda-container">
         <!-- Formulario para agendar citas -->
         <div class="agenda-citas">
             <h2>Agenda de citas</h2>
@@ -43,7 +43,7 @@
         <!-- Calendario a la derecha del formulario -->
         <div class="calendario">
             <div class="calendario-header">
-                <span>AGENDA</span>
+                <h2>AGENDA</h2>
             </div>
             <div class="calendario-grid">
                 <!-- Días del calendario -->

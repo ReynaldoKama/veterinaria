@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CitasController;
@@ -22,10 +22,14 @@ Route::post('/login', [LoginController::class, 'login'])->name('login-usuario');
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/productos', [ProductsController::class, 'index'])->name('product.index');
-Route::get('/productos/create', [ProductsController::class, 'create'])->middleware(['auth','can:admin.product.create'])->name('product.create');
+Route::get('/productos', [ProductController::class, 'index'])->name('product.index');
+Route::get('/productos/create', [ProductController::class, 'create'])->name('product.create');
+Route::post('/productos', [ProductController::class, 'store'])->name('product.store');
+Route::get('/productos/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
+Route::put('/productos/{product}', [ProductController::class, 'update'])->name('product.update');
+Route::delete('/productos/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
 
-Route::post('/add-to-cart/{id}', [ProductsController::class, 'addToCart'])->name('add.to.cart');
+Route::post('/add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
 
 
 Route::get('/citas', [CitasController::class, 'index'])->name('citas.index');
