@@ -111,3 +111,18 @@ html{
     color: #FFFFFF;
     font-weight: bold;
 }
+.alert-danger{
+    padding-top: 2rem;
+    color: rgb(205, 47, 47);
+    font-size: 1.5rem;
+    text-align: left;
+}
+.success-login{
+    padding-top: 2rem;
+    font-size: 1.5rem;
+    text-align: right;
+}
+.success-login p,
+.success-login a{
+    color: white;
+}
