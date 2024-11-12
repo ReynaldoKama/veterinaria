@@ -1,0 +1,136 @@
+/* Estilos generales */
+.agenda-container {
+    display: flex;
+    gap: 20px;
+}
+
+/* Estilos para la sección de citas agendadas */
+.citas-agendadas {
+    background-color: #083337;
+    color: white;
+    width: 200px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.citas-agendadas h2 {
+    font-size: 18px;
+    margin: 0 0 10px;
+}
+
+.cita-box {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Estilos para la sección de agenda de citas */
+.agenda-citas {
+    background-color: #e9eff7;
+    width: 500px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.agenda-citas h2 {
+    font-size: 20px;
+    color: #083337;
+    text-align: center;
+}
+
+.formulario-agenda {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input-text, .input-textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.input-textarea {
+    resize: none;
+    height: 80px;
+}
+
+.btn-agendar {
+    width: 100%;
+    padding: 10px;
+    background-color: #083337;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-agendar:hover {
+    background-color: #065a5b;
+}
+
+/* Estilos para el calendario */
+.calendario {
+    text-align: center;
+}
+
+.calendario-header {
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.calendario-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendario-dia {
+    width: 40px;
+    height: 40px;
+    background-color: #d1e4ff;
+    color: #083337;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.calendario-dia:hover {
+    background-color: #a8c9ff;
+}
+
+/* Estilos para mensajes de éxito */
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Estilos para las citas agendadas */
+.citas-list {
+    margin-top: 10px;
+}
+
+.cita-box {
+    background-color: #fff;
+    color: #333;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}

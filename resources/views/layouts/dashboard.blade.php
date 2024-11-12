@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/dashboard.css') }}">
     <link rel="stylesheet" href="{{ asset('css/productos.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/citas.css') }}">
 
     <title>BienestarAnimal</title>
 </head>
@@ -19,7 +20,7 @@
             <div class="content-left">
                 <nav class="navegacion">
                     <a href="{{ route('product.index') }}"><p>Productos</p></a>
-                    <a href="#"><p>citas</p></a>
+                    <a href="{{ route('citas.index') }}"><p>citas</p></a>
                     <a href="#"><p>Nosotros</p></a>
                     <a href="#"><p>Animales</p></a>
                     {{-- <li><a href="{{ route('#') }}">Nuevo animal</a></li> --}}
