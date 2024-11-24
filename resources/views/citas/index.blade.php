@@ -11,8 +11,8 @@
     @endif
 
     <!-- Sección de citas programadas -->
-    <div class="citas-agendadas">
-        <h2>Citas agendadas</h2>
+    <div class="datos-izquierda">
+        <h3 class="titulos-izquierda">Citas agendadas</h3>
         <div class="citas-list" id="citas-list">
             <p>ninguna programada</p>
         </div>
@@ -36,7 +36,7 @@
                 <label>Motivo:</label>
                 <textarea id="motivo" name="motivo" class="input-textarea" placeholder="Motivo"></textarea>
                 
-                <button type="button" class="btn-agendar" onclick="agendarCita()">Agendar Cita</button>
+                <button type="button" class="btn-si btn-ver-producto" onclick="agendarCita()">Agendar Cita</button>
             </form>
         </div>
 
