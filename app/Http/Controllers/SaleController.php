@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Veterian;
+use App\Models\Sale;
 use Illuminate\Http\Request;
 
-class VeterianController extends Controller
+class SaleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class VeterianController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Veterian $veterian)
+    public function show(Sale $cart)
     {
         //
     }
@@ -42,7 +42,7 @@ class VeterianController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Veterian $veterian)
+    public function edit(Sale $cart)
     {
         //
     }
@@ -50,7 +50,7 @@ class VeterianController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Veterian $veterian)
+    public function update(Request $request, Sale $cart)
     {
         //
     }
@@ -58,7 +58,7 @@ class VeterianController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Veterian $veterian)
+    public function destroy(Sale $cart)
     {
         //
     }

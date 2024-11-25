@@ -21,9 +21,11 @@ return new class extends Migration
             $table->integer('stock');
             $table->string('image_url');
             $table->boolean('active')->default(true);
+            $table->bigInteger('admin_id')->unsigned();
             $table->bigInteger('category_id')->unsigned();
             $table->timestamps();
 
+            $table->foreign('admin_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }

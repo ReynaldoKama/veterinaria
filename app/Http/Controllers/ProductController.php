@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -11,55 +12,92 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $productos = Product::all();
-        return view('products.index', compact('productos'));
+        $categorias = Category::all();
+        $busqueda = $request->busqueda;
+        $categoriaId = $request->categoria_id;
+        $productos = Product::query();
+        if ($busqueda) {
+            $productos = Product::where('name', 'LIKE', '%' . $busqueda . '%');
+        }
+
+        if ($categoriaId) { 
+            $productos = $productos->where('category_id', $categoriaId); 
+        }
+        
+        $productos = $productos->get();
+        if ($productos->isEmpty()) {
+            $productos = Product::all();
+        }
+        return view('products.index', compact('productos', 'categorias'));
     }
+
+    // public function index()
+    // {
+    //     $productos = Product::all();
+    //     $categorias = Category::all();
+    //     return view('products.index', compact('productos', 'categorias'));
+    // }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('products.create');
+        $categories = Category::all();
+        return view('products.create', compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'price' => 'required|numeric|min:0',
-            'presentation' => 'required|string',
-            'specifications' => 'nullable|string',
-            'description' => 'nullable|string',
-            'stock' => 'required|integer|min:0',
-            'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-        ]);
-        
-        // Manejar la carga de la imagen
-        if ($request->hasFile('image_url')) {
-            // Subir la imagen al directorio public
-            $imagePath = $request->file('image_url')->store('productos', 'public');
-        }
-        #Product::create($request->all());
-         // Crear el producto
-        Product::create([
-            'name' => $request->input('name'),
-            'price' => $request->input('price'),
-            'presentation' => $request->input('presentation'),
-            'specifications' => $request->input('specifications'),
-            'description' => $request->input('description'),
-            'stock' => $request->input('stock'),
-            'image_url' => $imagePath,
-            'category_id' => 1,
-        ]);
+{
+    // Valida los datos del formulario
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'price' => 'required|numeric|min:0',
+        'presentation' => 'required|string',
+        'specifications' => 'nullable|string',
+        'description' => 'nullable|string',
+        'stock' => 'required|integer|min:0',
+        'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validar el archivo de imagen
+        'categoria' => 'required|integer'
+    ]);
 
-        return redirect()->route('product.index')->with('success', 'Producto creado Correctamente');
+    $imagePath = null;
+    // Manejar la carga de la imagen
+    if ($request->hasFile('image_url')) {
+        // Obtener el archivo de la solicitud
+        $image = $request->file('image_url');
+        // Asignar un nombre único a la imagen
+        $imageName = time() . '_' . $image->getClientOriginalName();
+        // Guardar la imagen en 'public/images/productos' y obtener la ruta
+        $imagePath = $image->storeAs('images/productos', $imageName, 'public');
+        // La ruta pública que se almacenará en la base de datos
+        $imagePath = 'storage/' . $imagePath;
     }
+
+    // Reemplazar saltos de línea con '\n' en las especificaciones y descripción 
+    $specifications = str_replace(PHP_EOL, '\n', $request->input('specifications'));
+    $description = str_replace(PHP_EOL, '\n', $request->input('description'));
+    // Crear el producto y guardar en la base de datos
+    Product::create([
+        'name' => $request->input('name'),
+        'price' => $request->input('price'),
+        'presentation' => $request->input('presentation'),
+        'specifications' => $specifications,
+        'description' => $description,
+        'stock' => $request->input('stock'),
+        'image_url' => $imagePath, // Guardar la ruta de la imagen en la base de datos
+        'category_id' => $request->input('categoria'), // Ajusta esto según tu lógica
+    ]);
+
+    // Redirigir con un mensaje de éxito
+    return redirect()->route('product.index')->with('success', 'Producto creado correctamente');
+}
+
 
     /**
      * Display the specified resource.
@@ -72,16 +110,22 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $producto)
+    public function edit(Request $request, $id)
     {
-        return view('product.edit', compact('producto'));
+        $producto = Product::find($id);
+        $producto->specifications = str_replace('\n', PHP_EOL, $producto->specifications);
+        $producto->description = str_replace('\n', PHP_EOL, $producto->description);
+        $categories = Category::all();
+        
+        return view('products.edit', compact('producto', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $producto)
+    public function update(Request $request, string $id)
     {
+        // Valida los datos del formulario
         $request->validate([
             'name' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
@@ -89,29 +133,55 @@ class ProductController extends Controller
             'specifications' => 'nullable|string',
             'description' => 'nullable|string',
             'stock' => 'required|integer|min:0',
-            'image_url' => 'required|nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'categoria' => 'required|integer'
         ]);
-        
-            // Procesar la nueva imagen, si existe
-        if ($request->hasFile('image')) {
-            // Eliminar la imagen anterior si existe
-            if ($producto->image_url) {
-                Storage::disk('public')->delete($producto->image_url);
+        $producto = Product::findOrFail($id);
+        $imagePath = $producto->image_url;
+        // Manejar la carga de la imagen
+        if ($request->hasFile('image_url')) {
+
+            // Eliminar la imagen anterior si existe 
+            if ($producto->image_url && file_exists(public_path($producto->image_url))) { 
+                unlink(public_path($producto->image_url)); 
             }
-            $producto->image_url = $request->file('image')->store('products', 'public');
+            // Obtener el archivo de la solicitud
+            $image = $request->file('image_url');
+            // Asignar un nombre único a la imagen
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            // Guardar la imagen en 'public/images/productos' y obtener la ruta
+            $imagePath = $image->storeAs('images/productos', $imageName, 'public');
+            // La ruta pública que se almacenará en la base de datos
+            $imagePath = 'storage/' . $imagePath;
         }
-        $producto->update($request->except('image') + ['image_url' => $producto->image_url]);
+
+        // Reemplazar saltos de línea con '\n' en las especificaciones y descripción 
+        $specifications = str_replace(PHP_EOL, '\n', $request->input('specifications'));
+        $description = str_replace(PHP_EOL, '\n', $request->input('description'));
+        // Crear el producto y guardar en la base de datos
+        
+        
+        $producto->update([
+            'name' => $request->input('name'),
+            'price' => $request->input('price'),
+            'presentation' => $request->input('presentation'),
+            'specifications' => $specifications,
+            'description' => $description,
+            'stock' => $request->input('stock'),
+            'image_url' => $imagePath, // Guardar la ruta de la imagen en la base de datos
+            'category_id' => $request->input('categoria'), // Ajusta esto según tu lógica
+        ]);
     
-        return redirect()->route('products.index')->with('success', 'Producto actualizado correctamente.');
+        return redirect()->route('product.index')->with('success', 'Producto actualizado correctamente.');
     }
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $producto)
+    public function destroy( string $id)
     {
+        $producto = Product::findOrFail($id);
         $producto->delete();
 
-        return redirect()->route('products.index')->with('success', 'Producto eliminado correctamente.');
+        return redirect()->route('product.index')->with('success', 'Producto eliminado correctamente.');
     
     }
     public function addToCart(Request $request, $id)

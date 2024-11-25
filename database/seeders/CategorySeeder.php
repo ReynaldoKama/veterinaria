@@ -14,7 +14,31 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $category = new Category();
+        $category->name = 'Anabólicos';
+        $category->save();
+
+        $category = new Category();
+        $category->name = 'Antibióticos';
+        $category->save();
+        
+        $category = new Category();
+        $category->name = 'Antiinflamatorios';
+        $category->save();
+
+        $category = new Category();
+        $category->name = 'Antiparasitarios';
+        $category->save();
+
+        $category = new Category();
+        $category->name = 'Biológicos';
+        $category->save();
+
+        $category = new Category();
         $category->name = 'Hormonales';
+        $category->save();
+
+        $category = new Category();
+        $category->name = 'Vitaminas y minerales';
         $category->save();
     }
 }

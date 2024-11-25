@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('pets', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('type');
+            $table->date('fecha_nac');
+            $table->boolean('active')->default(true);
+            $table->boolean('adopted')->default(false);
+            $table->string('image_url');
+            $table->bigInteger('owner_id')->unsigned();
+            $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

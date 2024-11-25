@@ -1,0 +1,178 @@
+/* login.css */
+:root{
+    --color-primary: #03363D;
+    --color-secondary: #6c757d;
+    --color-hover: #00A680;
+    --color-fondo: #DCE5F4;
+    --color-blanco-transparente: rgba(245, 255, 255, 0.24);
+    --color-blanco: #FFFFFF;
+    --color-precio: #F4B909;
+    --color-login-transparente: rgba(84, 84, 84, 0.80);
+}
+html{
+    font-size: 62.5%; /* (1) */
+    box-sizing: border-box;
+}
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+.register-producto-container {
+    width: 80%;
+    margin: 3rem auto 0 auto;
+    text-align: center;
+}
+.titulo-crud-productos{
+    font-size: 2.4rem;
+    margin: 0 0 3rem 0;
+    color: var(--color-blanco);
+}
+.crud-producto-form{
+    margin: 2rem;
+    width: calc(100% - 4rem);
+    padding: 2rem;
+    border-radius: 1rem;
+    border: .1rem solid #FFFFFF;
+    background-color: var(--color-login-transparente);
+    /* background-color: rgba(106, 106, 106, 0.4); */
+}
+.crud-producto-form .guardar-producto-text{
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin: 0;
+}
+.input-group{
+    width: 100%;
+    padding: .5rem;
+    margin: 0;
+    border-radius: 1rem;
+    border: .1rem solid #FFFFFF;
+    background-color: transparent;
+    /* display: flex;
+    justify-content: left;
+    align-items: center; */
+}
+.input-group input{
+    width: 100%;
+    height: 2.5rem;
+    padding-left: .8rem;
+    border-radius: .5rem;
+    border: none;
+    outline: none;
+    color: #FFFFFF;
+    background-color: transparent;
+}
+.input-group input::placeholder {
+    color: #FFFFFF;
+    opacity: 0.8; /* Cambiar la opacidad del placeholder */
+  }
+  
+.btn-producto-guardar{
+    background-color: var(--color-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFFFFF;
+    padding: .2rem 1rem;
+    border-radius: 1rem;
+    border: none;
+    width: 100%;
+    height: 3.5rem;
+    text-decoration: none;
+}
+.btn-producto-guardar .guardar-producto-text{
+    margin: .5rem auto;
+}
+
+.alert-danger{
+    padding-top: 2rem;
+    color: rgb(205, 47, 47);
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+
+.inputs-registro{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    
+}
+
+.content-input-text{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 26rem;
+}
+.content-texarear{
+    width: 50%;
+    height: 26rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.price-stock{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+/* .price-stock .input-group{
+    margin-top: 0;
+} */
+.content-texarear textarea{
+    width: 100%;
+    height: 10rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    border: none;
+    outline: none;
+    resize: none; /* Esto evita que el textarea se pueda redimensionar */ 
+    overflow: auto; /* Esto agrega scroll si el contenido sobrepasa el tamaño del textarea*/
+}
+.add-imagen-producto{
+    margin: 0 0 2rem 0;
+}
+.cancelar-add{
+    background-color: var(--color-fondo);
+    color: #696969;
+    width: 15rem;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+.btn-cancelar{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.label-input{
+    width: 100%;
+
+}
+.label-input p{
+    text-align: left;
+    margin: 0;
+    padding: .5rem 0;
+    font-size: 1.5rem;
+    color: white;
+}
+.categoria-create{
+    background-color: transparent;
+    padding: .3rem 0;
+    outline: none;
+    color: #FFFFFF;
+}
+.categoria-create option{
+    background-color: #FFFFFF;
+    color: var(--color-primary);
+}
+
+
+/*  */

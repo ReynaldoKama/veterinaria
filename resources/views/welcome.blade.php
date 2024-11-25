@@ -84,3 +84,4 @@
     </main>
 </body>
 </html>
+<script src="{{asset('js/welcome.js')}}"></script>
