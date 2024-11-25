@@ -31,6 +31,7 @@ body{
     height: 100vh;
     position: relative;
     color: var(--color-blanco);
+    transition: background-image 1s ease-in-out;
 }
 
 .capa-inicial{

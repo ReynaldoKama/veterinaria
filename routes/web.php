@@ -23,11 +23,11 @@ Route::post('/login', [LoginController::class, 'login'])->name('login-usuario');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/productos', [ProductController::class, 'index'])->name('product.index');
-Route::get('/productos/create', [ProductController::class, 'create'])->name('product.create');
-Route::post('/productos', [ProductController::class, 'store'])->name('product.store');
-Route::get('/productos/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
-Route::put('/productos/{product}', [ProductController::class, 'update'])->name('product.update');
-Route::delete('/productos/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
+Route::get('/productos/create', [ProductController::class, 'create'])->middleware(['auth','can:admin.products.create'])->name('product.create');
+Route::post('/productos', [ProductController::class, 'store'])->middleware(['auth', 'can:admin.products.edit'])->name('product.store');
+Route::get('/productos/edit/{id}', [ProductController::class, 'edit'])->middleware(['auth', 'can:admin.products.edit'])->name('product.edit');
+Route::put('/productos/{id}', [ProductController::class, 'update'])->middleware(['auth', 'can:admin.products.update'])->name('product.update');
+Route::delete('/productos/{id}', [ProductController::class, 'destroy'])->middleware(['auth', 'can:admin.products.destroy'])->name('product.destroy');
 
 Route::post('/add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
 

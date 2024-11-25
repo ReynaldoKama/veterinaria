@@ -22,8 +22,8 @@ p{
 
 .input-group-register{
     margin: 0;
-    /* border: .1rem solid var(--color-primary); */
-    /* background-color: var(--color-secondary); */
+    /* border: .1rem solid var(--color-primary);
+    background-color: var(--color-secondary); */
 }
 .input-group-register input{
     width: 100%;
