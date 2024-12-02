@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 class ProductController extends Controller
@@ -79,6 +80,7 @@ class ProductController extends Controller
         $imagePath = 'storage/' . $imagePath;
     }
 
+
     // Reemplazar saltos de línea con '\n' en las especificaciones y descripción 
     $specifications = str_replace(PHP_EOL, '\n', $request->input('specifications'));
     $description = str_replace(PHP_EOL, '\n', $request->input('description'));
@@ -91,6 +93,7 @@ class ProductController extends Controller
         'description' => $description,
         'stock' => $request->input('stock'),
         'image_url' => $imagePath, // Guardar la ruta de la imagen en la base de datos
+        'admin_id' => 1, // Obtener el ID del usuario autenticado
         'category_id' => $request->input('categoria'), // Ajusta esto según tu lógica
     ]);
 
@@ -137,6 +140,7 @@ class ProductController extends Controller
         ]);
         $producto = Product::findOrFail($id);
         $imagePath = $producto->image_url;
+        
         // Manejar la carga de la imagen
         if ($request->hasFile('image_url')) {
 

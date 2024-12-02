@@ -20,7 +20,6 @@
                             <p>Total: <span id="total-suma">0 Bs</span></p> <!-- Muestra la sumatoria total al final -->
                             <button id="pagar-btn" class="btn-si btn-ver-producto" onclick="pagar()" style="display:none;">Pagar</button>
                         </div>
-                        
                     </div>
                 </div>
             </div>{{-- cotizador productos --}}
@@ -97,8 +96,9 @@
             
             <div class="modal-info">
                 <div class="stock-contenido">
-                    <p class="en-stock">En stock: </p>
-                    <p class="value-stock en-stock"><strong id="valueStock"></strong></p>
+                        <p class="en-stock">En stock: </p>
+                        <p class="value-stock en-stock"><strong id="valueStock"></strong></p>
+                    
                 </div>
 
                 <div class="cantidad">

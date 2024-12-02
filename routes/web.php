@@ -5,6 +5,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CitasController;
+use App\Http\Controllers\DetailSaleController;
+use App\Http\Controllers\SaleController;
 
 Route::get('/', function () {
     return view('/welcome');
@@ -30,6 +32,11 @@ Route::put('/productos/{id}', [ProductController::class, 'update'])->middleware(
 Route::delete('/productos/{id}', [ProductController::class, 'destroy'])->middleware(['auth', 'can:admin.products.destroy'])->name('product.destroy');
 
 Route::post('/add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
+
+
+Route::post('/pagar', [SaleController::class, 'pagar'])->name('sales.store');
+// Route::post('/details_sale', [DetailSaleController::class, 'store'])->name('details_sale.store');
+
 
 
 Route::get('/citas', [CitasController::class, 'index'])->name('citas.index');

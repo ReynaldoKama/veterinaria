@@ -14,12 +14,10 @@ return new class extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
             $table->date('sale_date');
-            $table->integer('cantidad');
+            $table->decimal('total', 8, 2);
             $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('product_id')->unsigned();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
     }
