@@ -18,6 +18,16 @@ class Product extends Model
         'description',
         'stock',
         'image_url',
+        'admin_id',	
         'category_id',  // Aquí puedes añadir otros campos como 'category_id' si es necesario
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function detailSales() { 
+        return $this->hasMany(Detail_Sale::class); 
+    }
+
 }
