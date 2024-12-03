@@ -71,7 +71,7 @@ class RegisterController extends Controller
             ['email' => $googleUser->getEmail(),
             'name' => $googleUser->getName(), 
             'google_id' => $googleUser->getId()]
-        )->assignRole('cliente');
+        )->assignRole('admin');
 
         Auth::login($user, true);
         

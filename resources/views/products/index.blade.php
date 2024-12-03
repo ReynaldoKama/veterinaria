@@ -100,14 +100,15 @@
                         <p class="value-stock en-stock"><strong id="valueStock"></strong></p>
                     
                 </div>
-
+                @can('admin.products.create')
                 <div class="cantidad">
                     <p>Cantidad</p>
                     <input class="input-cantidad" type="number" id="cantidadProducto" value="1" min="1">
                 </div>
+                @endcan
             </div>
-            <button class="btn-anadir btn-ver-producto" onclick="agregarAlCarrito()"><img src="images/productos/carrito.png" alt="carrito"><p>Añadir al carrito</p></button>
             @can('admin.products.create')
+            <button class="btn-anadir btn-ver-producto" onclick="agregarAlCarrito()"><img src="images/productos/carrito.png" alt="carrito"><p>Añadir al carrito</p></button>
             <div class="acciones">
                 <a class="editar" id="editarBtn" href=""> <img src="{{asset('images/edit.png')}}" alt="edit"> editar</a>
                 <button class="eliminar" id="eliminarBtn" onclick=""> <img src="{{asset('images/delete.png')}}" alt="delete"> Eliminar</button>
