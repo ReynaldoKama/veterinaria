@@ -5,8 +5,8 @@
 <div class="agenda-container">
 
     <!-- Sección de citas programadas -->
-    <div class="datos-izquierda">
-        <h3 class="titulos-izquierda">Citas agendadas</h3>
+    <div class="datos-izquierda c_t">
+        <h3 class="titulos-izquierda h">Citas agendadas</h3>
         <div class="citas-list" id="citas-list">
             @if($citas->isEmpty())
                 <p>Ninguna programada</p>

@@ -22,8 +22,8 @@
                         <nav class="navegacion">
                             <a href="{{ route('product.index') }}"><p>Productos</p></a>
                             <a href="{{ route('citas.index')}}"><p>citas</p></a>
-                            <a href="#"><p>Nosotros</p></a>
-                            <a href="#"><p>Animales</p></a>
+                            {{-- <a href="#"><p>Nosotros</p></a> --}}
+                            <a href="#"><p>Adopciones</p></a>
                             {{-- <li><a href="{{ route('#') }}">Nuevo animal</a></li> --}}
                         </nav>
                         @auth
